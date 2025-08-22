@@ -1,13 +1,199 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 62.5%;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+:root {
+  --background-color: #fff;
+  --primary: #2c2c2c;
+  --secondary: rgb(207, 207, 207);
+  --accent-color: #00a676;
+  --accent-outline: #004e38;
+  --delete: #e63946;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+button[type="submit"]:hover,
+.see-more-button:hover {
+  transform: scale(1.05);
+}
+
+.starting-p {
+  text-align: center;
+  font-size: 4rem;
+  margin: 3rem;
+}
+/*Expense Form*/
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin: 3rem 0;
+  color: var(--accent-color);
+  text-shadow: -0.1rem -0.1rem 0 var(--accent-outline),
+    0.1rem -0.1rem 0 var(--accent-outline),
+    -0.1rem 0.1rem 0 var(--accent-outline),
+    0.1rem 0.1rem 0 var(--accent-outline);
+  letter-spacing: 0.2rem;
+}
+
+form {
+  padding: 1rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.6rem;
+  font-weight: 500;
+  background-color: #f1f3f4;
+}
+
+button[type="submit"] {
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  font-size: 2rem;
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  border-radius: 2rem;
+  border: 0.2rem solid var(--accent-outline);
+  margin-bottom: 3rem;
+}
+
+input,
+select {
+  margin-bottom: 1.5rem;
+  height: 3rem;
+}
+
+input {
+  padding-left: 1rem;
+}
+
+/*Expense List*/
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.ul-container {
+  padding: 2rem;
+}
+
+.list-container {
+  box-shadow: 0 0 0.3rem 0.1rem var(--primary);
+  padding: 2rem;
+  margin-bottom: 3rem;
+}
+
+.list-container ul {
+  display: grid;
+  grid-template-columns: repeat(1, 2fr);
+}
+
+.list-container ul li {
+  list-style: none;
+  font-size: 1.4rem;
+  border-bottom: 0.2rem solid var(--accent-outline);
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+.expense-details {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-left: 1rem;
+}
+
+.amount {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--delete);
+}
+
+.delete-button:hover {
+  transform: scale(1.4);
+}
+
+.see-more-button {
+  background-color: var(--accent-color);
+  padding: 0 1rem;
+  border: 0.2rem solid var(--accent-outline);
+  color: var(--background-color);
+  border-radius: 4rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/*Expense Item*/
+.popup-container {
+  background-color: #f1f3f4;
+  border: 0.4rem solid var(--accent-color);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 4rem);
+  min-height: 20rem;
+  height: fit-content;
+  padding: 2rem 2rem 2rem 4.5rem;
+  z-index: 1001;
+}
+
+.popup-container h3 {
+  font-size: 2.5rem;
+}
+
+.popup-container p {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+
+.popup-container .close-button {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  font-size: 3rem;
+  background: none;
+  border: none;
+  color: var(--delete);
+}
+
+.popup-container .close-button:hover {
+  transform: scale(1.2);
+}
+
+.delete-item-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border-radius: 4rem;
+  border: none;
+  background-color: var(--delete);
+  color: var(--background-color);
+  font-weight: 600;
+  letter-spacing: 0.2rem;
 }
